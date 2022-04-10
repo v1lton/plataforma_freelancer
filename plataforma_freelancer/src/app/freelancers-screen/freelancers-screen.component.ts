@@ -7,9 +7,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FreelancersScreenComponent implements OnInit {
 
-  constructor() { }
+  service: string;
+  freelancers: Freelancer[] = [new Freelancer("Wilton Ramos",4), new Freelancer("Vinicius Scala", 5), new Freelancer("Marcos", 1), new Freelancer("Marta", 2)];
+
+  constructor() { 
+    this.service = "UX";
+  }
 
   ngOnInit(): void {
   }
 
+  hire(){
+  }
+
+  sortByBestScores() {
+    this.freelancers.sort((a,b) => b.score - a.score);
+  }
+
+  sortByWorstScore() {
+    this.freelancers.sort((a,b) => a.score - b.score);
+  }
+
+  sortByName() {
+    this.freelancers.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+  }
+}
+
+class Freelancer {
+  name: string;
+  score: number;
+  email: string;
+  services: string[];
+
+  constructor(name: string, score: number) {
+    this.name = name;
+    this.score = score;
+    this.email = "oioi@gmail.com";
+    this.services = [];
+  }
+
+  getScore() {
+    return this.score.toString() + " estrelas de 5";
+  }
 }
