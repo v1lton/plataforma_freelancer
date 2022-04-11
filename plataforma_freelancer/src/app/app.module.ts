@@ -8,6 +8,7 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { ServicesScreenComponent } from './services-screen/services-screen.component';
 import { FreelancersScreenComponent } from './freelancers-screen/freelancers-screen.component';
 import { CreateServiceScreenComponent } from './create-service-screen/create-service-screen.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateServiceScreenComponent } from './create-service-screen/create-ser
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
