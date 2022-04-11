@@ -1,1 +1,59 @@
-<p>freelancers-screen works!</p>
+<div class="freelancer-screen">
+    <h1> {{ "Pessoas interessadas em " + service }}</h1>
+    <p><button (click)="navigateToCreateService()">Cadastrar serviço</button></p>
+    <ng-container *ngIf="freelancers.length == 0">
+        <div>
+            <p>{{"No momento não temos pessoas interessadas em realizar o serviço de " + service}}</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="freelancers.length != 0">
+        <div class="filter">
+            <table>
+                <tr>
+                    <th><button (click)="filterBy(5)">5 estrelas</button></th>
+                    <th><button (click)="filterBy(4)">4 estrelas</button></th>
+                    <th><button (click)="filterBy(3)">3 estrelas</button></th>
+                    <th><button (click)="filterBy(2)">2 estrelas</button></th>
+                    <th><button (click)="filterBy(1)">1 estrelas</button></th>
+                    <th><button (click)="cleanFilters()">Limpar filtros</button></th>
+                </tr>
+            </table>
+        </div>
+        <div class="sort">
+            <table>
+                <tr>
+                    <th><button (click)="sortByName()"> Ordenar A:Z</button></th>
+                    <th><button (click)="sortByBestScores()"> Ordenar melhor avaliação</button></th>
+                    <th><button (click)="sortByWorstScore()"> Ordenar pior avaliação</button></th>
+                </tr>
+            </table>
+        </div>
+        <ng-container *ngIf="!isFiltered; else applyFilter">
+            <div class="column">
+                <dl *ngFor="let freelancer of freelancers" class="column">
+                    <dd>{{ freelancer.name }}</dd>
+                    <dd>{{ freelancer.getScore() }}</dd>
+                    <dd>{{ freelancer.email }}</dd>
+                    <dd><button (click)="navigateToFeedback(freelancer)"> Contratar </button></dd>
+                    <br>
+                </dl>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
+<ng-template #applyFilter>
+    <div class="column">
+        <ng-container *ngIf="filteredFreelancers.length > 0; else filtersResultsEmpty">
+            <dl *ngFor="let freelancer of filteredFreelancers" class="column">
+                <dd>{{ freelancer.name }}</dd>
+                <dd>{{ freelancer.getScore() }}</dd>
+                <dd>{{ freelancer.email }}</dd>
+                <dd><button (click)="navigateToFeedback(freelancer)"> Contratar </button></dd>
+                <br>
+            </dl>
+        </ng-container>
+        <ng-template #filtersResultsEmpty>
+            <p>Não foi possível encontrar resultado para este filtro :(</p>
+        </ng-template>
+    </div>
+</ng-template>

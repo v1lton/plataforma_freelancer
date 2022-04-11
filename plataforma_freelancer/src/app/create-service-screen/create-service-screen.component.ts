@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateServiceScreenComponent implements OnInit {
 
-  constructor() { }
+  service: Service; 
+
+  constructor() { 
+    this.service = new Service("",0,"");
+  }
 
   ngOnInit(): void {
+  }
+
+}
+
+class Service {
+  name: string;
+  price: number;
+  description: string;
+
+  constructor(name: string, price: number, description: string) {
+    this.name = name;
+    this.price = price;
+    this.description = description;
   }
 
 }
