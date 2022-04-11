@@ -55,7 +55,7 @@ export class FreelancersScreenComponent implements OnInit {
   }
 
   navigateToCreateService() {
-
+    this.router.navigate(['/create']);
   }
 }
 
