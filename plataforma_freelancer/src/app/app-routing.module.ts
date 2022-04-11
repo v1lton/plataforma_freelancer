@@ -5,8 +5,8 @@ import { FreelancersScreenComponent } from './freelancers-screen/freelancers-scr
 import { ServicesScreenComponent } from './services-screen/services-screen.component';
 
 const routes: Routes = [
+  { path: '', component: ServicesScreenComponent },
   { path: 'freelancers/:service', component: FreelancersScreenComponent },
-  { path: 'services', component: ServicesScreenComponent },
   { path: 'feedback', component: FeedbackScreenComponent },
 ];
 
