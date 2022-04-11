@@ -1,5 +1,6 @@
 <div class="freelancer-screen">
     <h1> {{ "Pessoas interessadas em " + service }}</h1>
+    <p><button (click)="navigateToCreateService()">Cadastrar serviço</button></p>
     <ng-container *ngIf="freelancers.length == 0">
         <div>
             <p>{{"No momento não temos pessoas interessadas em realizar o serviço de " + service}}</p>

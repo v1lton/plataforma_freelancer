@@ -46,6 +46,10 @@ export class FreelancersScreenComponent implements OnInit {
     this.isFiltered = false;
     this.filteredFreelancers = [];
   }
+
+  navigateToCreateService() {
+
+  }
 }
 
 class Freelancer {
