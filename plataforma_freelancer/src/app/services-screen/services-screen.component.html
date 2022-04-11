@@ -1,6 +1,6 @@
 <section class="services-screen">
     <div class="content">
-        <button *ngFor="let service of services">
+        <button *ngFor="let service of services" (click)="navigateToFreelancers(service)">
             {{ service }}
         </button>
     </div>

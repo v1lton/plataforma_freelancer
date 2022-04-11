@@ -34,7 +34,7 @@
                     <dd>{{ freelancer.name }}</dd>
                     <dd>{{ freelancer.getScore() }}</dd>
                     <dd>{{ freelancer.email }}</dd>
-                    <dd><button (click)="hire()"> Contratar </button></dd>
+                    <dd><button (click)="navigateToFeedback(freelancer)"> Contratar </button></dd>
                     <br>
                 </dl>
             </div>
@@ -48,7 +48,7 @@
                 <dd>{{ freelancer.name }}</dd>
                 <dd>{{ freelancer.getScore() }}</dd>
                 <dd>{{ freelancer.email }}</dd>
-                <dd><button (click)="hire()"> Contratar </button></dd>
+                <dd><button (click)="navigateToFeedback(freelancer)"> Contratar </button></dd>
                 <br>
             </dl>
         </ng-container>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services-screen',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesScreenComponent implements OnInit {
   
-  services: string[] = ['Design', 'Desenvolvimento', 'consultoria', 'Marketing'];
+  services: string[] = ['Design', 'Desenvolvimento', 'Consultoria', 'Marketing'];
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  navigateToFreelancers(forService: string) {
+    this.router.navigate(['/freelancers/' + forService]);
+  }
 }
