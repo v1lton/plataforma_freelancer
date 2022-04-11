@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class FreelancersScreenComponent implements OnInit {
 
   service: string;
-  freelancers: Freelancer[] = [new Freelancer("Wilton Ramos",4), new Freelancer("Vinicius Scala", 5), new Freelancer("Marcos", 1), new Freelancer("Marta", 2)];
+  freelancers: Freelancer[] = [new Freelancer("Wilton Ramos",4), new Freelancer("Vinicius Scala", 5), new Freelancer("Marcos", 1), new Freelancer("Marta", 2), new Freelancer("João",4)];
+  filteredFreelancers: Freelancer[] = []
+  isFiltered: boolean = false;
 
   constructor() { 
     this.service = "UX";
@@ -21,15 +23,28 @@ export class FreelancersScreenComponent implements OnInit {
   }
 
   sortByBestScores() {
+    this.filteredFreelancers.sort((a,b) => b.score - a.score);
     this.freelancers.sort((a,b) => b.score - a.score);
   }
 
   sortByWorstScore() {
+    this.filteredFreelancers.sort((a,b) => a.score - b.score);
     this.freelancers.sort((a,b) => a.score - b.score);
   }
 
   sortByName() {
+    this.filteredFreelancers.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     this.freelancers.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+  }
+
+  filterBy(numberOfStars: number) {
+    this.isFiltered = true;
+    this.filteredFreelancers = this.freelancers.filter((freelancer) => freelancer.score >= numberOfStars);
+  }
+
+  cleanFilters() {
+    this.isFiltered = false;
+    this.filteredFreelancers = [];
   }
 }
 
