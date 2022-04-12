@@ -1,9 +1,7 @@
-.create-servie-screen * {
+.create-servie-screen {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-.column {
-    flex-direction: column
-}
