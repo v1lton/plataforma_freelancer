@@ -1,1 +1,25 @@
-<p>login-screen works!</p>
+<section class="login-screen">
+    <div class="content">
+        
+        <p>Insira seu login:</p>
+        <input [(ngModel)]= "nome" >
+        <p>Seu login deve ter no mínimo 5 caracteres</p> 
+        
+        <p>Insira sua senha:</p>
+        <input [(ngModel)]= "senha" >
+        <p>Sua senha deve ter no mínimo 3 caracteres</p> 
+        
+        
+        <button (click)="logar()"> Login </button>
+
+    </div>
+</section>
+
+
+<!--
+    <p> Usuários salvos: </p>
+<ul *ngFor="let nome of usuarios">
+    <li> <p> {{ usuarios }} </p></li>
+</ul>
+
+ -->
