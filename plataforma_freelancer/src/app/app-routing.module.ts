@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateServiceScreenComponent } from './create-service-screen/create-service-screen.component';
 import { FeedbackScreenComponent } from './feedback-screen/feedback-screen.component';
 import { FreelancersScreenComponent } from './freelancers-screen/freelancers-screen.component';
+import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { ServicesScreenComponent } from './services-screen/services-screen.component';
 
 const routes: Routes = [
-  { path: '', component: ServicesScreenComponent },
+  { path: '', component: LoginScreenComponent },
+  { path: 'services', component: ServicesScreenComponent },
   { path: 'freelancers/:service', component: FreelancersScreenComponent },
   { path: 'feedback', component: FeedbackScreenComponent },
   { path: 'create', component: CreateServiceScreenComponent },
