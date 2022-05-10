@@ -1,25 +1,51 @@
 <section class="login-screen">
-    <div class="content">
+    <div class="contentLogin">
         
         <p>Insira seu login:</p>
-        <input [(ngModel)]= "nome" >
+        <input [(ngModel)]= "usuario.cpf" >
         <p>Seu login deve ter no mínimo 5 caracteres</p> 
         
         <p>Insira sua senha:</p>
-        <input [(ngModel)]= "senha" >
+        <input [(ngModel)]= "usuario.senha" >
         <p>Sua senha deve ter no mínimo 3 caracteres</p> 
         
         
         <button (click)="logar()"> Login </button>
 
     </div>
+
+<!--
+    <div class="contentCadastro">
+        
+        <p>Insira seu nome:</p>
+        <input [(ngModel)]= "usuario.nome" >
+       
+        <p>Insira seu CPF:</p>
+        <input [(ngModel)]= "usuario.cpf" >
+        <p>Seu CPF será o seu login</p> 
+
+        <p>Insira seu email:</p>
+        <input [(ngModel)]= "usuario.email" >
+        
+        <p>Insira sua senha:</p>
+        <input [(ngModel)]= "usuario.senha" >
+
+        
+        
+        <button (click)="Cadastrar()"> Cadastrar </button>
+
+    </div>
+    -->
 </section>
 
 
 <!--
     <p> Usuários salvos: </p>
-<ul *ngFor="let nome of usuarios">
+<ul *ngFor="let usuario of usuarios">
     <li> <p> {{ usuarios }} </p></li>
+    <li> <p> {{ usuario.senha }} </p></li>
 </ul>
 
- -->
+-->
+
+

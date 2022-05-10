@@ -1,4 +1,6 @@
+import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-screen',
@@ -8,29 +10,48 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginScreenComponent implements OnInit {
 
-  nome: string;
-  senha: string;
-  usuarios: string[];
   
-  constructor() { 
-    this.nome = "";
-    this.senha = "";
+  usuarios: Usuario[];
+  usuario: Usuario = new Usuario(123456, "TESTE");
+  
+  constructor(private router: Router) { 
+    this.usuario.nome = "Isabel";
+    this.usuario.cpf = 0;
+    this.usuario.email = "isabel@gmail";
+    this.usuario.senha = "aaabbb123";
     this.usuarios = [];
   }
 
   ngOnInit(): void {
-    this.nome = "";
-    this.senha = "";
+    this.usuario.nome = " ";
+    this.usuario.cpf = 0;
+    this.usuario.email = " ";
+    this.usuario.senha = " ";
   }
 
 
   logar(){
-    if(this.nome.length >= 5 && this.senha.length >= 3){
-      this.usuarios.push(this.nome + " " + this.senha);
-      this.nome = ""
-      this.senha = ""
-    }
+    this.router.navigateByUrl('services');
   }
+
+ /* Cadastrar(){
+      this.usuarios.push(this.usuario)
+  }*/
   
+}
+
+class Usuario {
+  nome: string;
+  cpf: number;
+  email: string;
+  senha: string;
+
+  constructor(login: number, senha: string) {
+    this.nome = " ";
+    this.cpf = login;
+    this.email = " ";
+    this.senha = senha;
+  }
+
 
 }
